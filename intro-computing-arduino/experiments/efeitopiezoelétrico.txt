@@ -1,0 +1,12 @@
+Basicamente, o efeito piezoelétrico pode ser descrito da seguinte forma:
+
+Ao apertar certos cristais (como quartzo) podemos fazer a eletricidade fluir através deles. Da mesma maneira,
+se passarmos eletricidade pelos mesmos cristais, eles se comprimem vibrando.
+
+
+A piezoeletricidade é o aparecimento de um potencial elétrico nas laterais de um cristal quando você o submete 
+a pressão mecânica (ou compressão).
+
+E de forma reversa, um cristal fica deformado quando uma voltagem é aplicada em suas faces opostas.
+
+Esse efeito é explorado em vários dispositivos: cmicrofones, captadores de som etc.

@@ -1,0 +1,68 @@
+bool seven_seg_digits[10][7] = { { 1,1,1,1,1,1,0 },  // = Digito 0
+								 { 0,1,1,0,0,0,0 },  // = Digito 1
+								 { 1,1,0,1,1,0,1 },  // = Digito 2
+								 { 1,1,1,1,0,0,1 },  // = Digito 3
+							 	 { 0,1,1,0,0,1,1 },  // = Digito 4
+							     { 1,0,1,1,0,1,1 },  // = Digito 5
+							     { 1,0,1,1,1,1,1 },  // = Digito 6
+							     { 1,1,1,0,0,0,0 },  // = Digito 7
+							     { 1,1,1,1,1,1,1 },  // = Digito 8
+							     { 1,1,1,1,0,1,1 },  // = Digito 9
+							   };
+void setup()
+{
+  pinMode(2, OUTPUT);   
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT); 
+  pinMode(8, OUTPUT);   
+  pinMode(12,OUTPUT);   
+  pinMode(13,OUTPUT);
+  pinMode(9, INPUT_PULLUP);
+  pinMode(10, INPUT_PULLUP);
+  Serial.begin(9600); // inicializa a entrada serial
+  
+}
+
+int i = 0;
+int x =0;
+int vetor[4];
+
+void loop()
+{
+  
+  digitalWrite(2,!seven_seg_digits[i][2]); // canto inferior direito
+  digitalWrite(12,!seven_seg_digits[i][6]); // do meio
+  digitalWrite(6,!seven_seg_digits[i][4]); // canto inferior esquerdo
+  digitalWrite(7,!seven_seg_digits[i][1]); // canto superior direito
+  digitalWrite(8,!seven_seg_digits[i][0]); // de cima 
+  digitalWrite(13,!seven_seg_digits[i][5]); // canto superior esquerdo
+  digitalWrite(5,!seven_seg_digits[i][3]); // de baixo
+  
+  if (!digitalRead(9)){
+  i++;
+  }
+  
+  if (i>9){
+    i=0;
+  }
+  
+ 
+  
+  if (!digitalRead(10)){
+    
+    vetor[x] = i;
+    x++;
+  }
+  
+  if (x == 4){
+  for (int c=0; c<4; c++){
+    
+    Serial.println(vetor[c]);
+  }
+    x= 0;
+  }
+  
+  delay(500);
+}
+

@@ -1,0 +1,27 @@
+// Kailane Eduarda Felix da Silva
+
+const int buzzer = 12; // pino do buzzer
+
+void setup () {
+  
+ 
+  pinMode(buzzer, OUTPUT); 
+  pinMode(8, INPUT_PULLUP); // botao
+ 
+}
+
+void loop (){
+  
+ 
+  noTone(buzzer); // buzzer desligado
+  
+  if (!digitalRead(8)) { // se o botao estiver sido pressionado
+    tone(buzzer, 800); // buzzer ligado
+    delay(2000); // 2 segundos
+  }
+  
+  else {
+  noTone(buzzer); // buzzer desligado
+  }
+    
+}

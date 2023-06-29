@@ -1,0 +1,46 @@
+void setup()
+{
+  pinMode(13, OUTPUT); // inicializa os leds
+  pinMode(12, OUTPUT); // inicializa os leds
+  pinMode(11, OUTPUT); // inicializa os leds
+  Serial.begin(9600); // inicializa a entrada serial
+
+}
+
+void loop()
+{
+  int x = 0;
+  int serial = Serial.available(); // verifica disponibilidade da entrada serial
+ 
+ x = Serial.read(); // x é o numero digitado no monitor serial
+
+  if (serial > 0) { // se a entrada serial estiver disponivel
+
+
+    switch (x) { // o menu lê x
+
+    case 48: // caso o numero digitado = 0
+
+      digitalWrite(13, HIGH);
+      digitalWrite(12, LOW);
+      digitalWrite(11, LOW);
+
+      break;
+
+    case 49: // caso o numero digitado = 1
+      digitalWrite(13, LOW);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, LOW);
+
+      break;
+
+    case 50: // caso o numero digitado = 2
+      digitalWrite(13, LOW);
+      digitalWrite(12, LOW);
+      digitalWrite(11, HIGH);
+
+      break;
+
+    }
+  }
+}

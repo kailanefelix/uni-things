@@ -1,0 +1,32 @@
+void setup()
+{
+  pinMode(3, OUTPUT); // inicializa os leds
+  pinMode(4, OUTPUT); // inicializa os leds
+  Serial.begin(9600); // inicializa a entrada serial
+
+void loop()
+{
+  
+ 
+  delay(1000); // espera um segundo
+  Serial.println("Potenciometro:"); 
+  delay(1000);
+  Serial.println(analogRead(A0)); // printa na tela o valor lido no potenciometro
+  int numero = analogRead(A0);
+
+  if (numero == 552){ // compara o numero lido com a senha
+  
+  delay(1000);
+  Serial.println("Senha correta:");
+  Serial.println(analogRead(A0));
+    digitalWrite(3, HIGH); // botao verde aceso
+    digitalWrite(4, LOW); // botao vemelho apaga
+  }
+
+  else {
+
+    digitalWrite(3, LOW); // botao verde apaga	
+    digitalWrite(4, HIGH); // botao vemelho aceso
+}
+ 
+}
